@@ -2,16 +2,18 @@ import 'package:flutter/material.dart';
 
 class AnswerButton extends StatelessWidget {
   const AnswerButton(this.answerText, this.onClickTheAnswer, {super.key});
-  final void Function(String text) onClickTheAnswer;
+  final void Function(String answer) onClickTheAnswer;
   final String answerText;
-  void clickTheAnswer() {
-    print("Clicking");
+  void clickTheAnswer(String answer) {
+    onClickTheAnswer(answer);
   }
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: clickTheAnswer,
+      onPressed: () {
+        clickTheAnswer(answerText);
+      },
       style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.symmetric(
           horizontal: 40,
@@ -24,6 +26,7 @@ class AnswerButton extends StatelessWidget {
         ),
       ),
       child: Text(
+        textAlign: TextAlign.center,
         answerText,
       ),
     );
