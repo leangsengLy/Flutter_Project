@@ -36,6 +36,13 @@ class _QuizState extends State<Quiz> {
     });
   }
 
+  void restartGame() {
+    setState(() {
+      chooseAnswer = [];
+      renderActive = 'start-screen';
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget contentRender = StartScreen(switchContent);
@@ -43,7 +50,7 @@ class _QuizState extends State<Quiz> {
       contentRender = QuestionScreen(onSelectTheAnswer);
     }
     if (renderActive == 'result_screen') {
-      contentRender = ResultScreen(chooseAnswer);
+      contentRender = ResultScreen(chooseAnswer, restartGame);
     }
     return MaterialApp(
       home: Scaffold(
@@ -53,8 +60,8 @@ class _QuizState extends State<Quiz> {
             begin: Alignment.topRight,
             end: Alignment.bottomRight,
             colors: [
-              Colors.purple,
-              Colors.deepPurple,
+              Color.fromARGB(255, 61, 0, 152),
+              Color.fromARGB(255, 46, 0, 125),
             ],
           )),
           child: contentRender,

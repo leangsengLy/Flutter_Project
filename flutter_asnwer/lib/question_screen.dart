@@ -16,13 +16,13 @@ class _QuestionScreenState extends State<QuestionScreen> {
   var currentQuestionIndex = 0;
   void selectAnswered(String answer) {
     setState(() {
-      currentQuestionIndex++;
+      // currentQuestionIndex++;
+      if (currentQuestionIndex == questions.length - 1) {
+        currentQuestionIndex = 0;
+      } else {
+        currentQuestionIndex++;
+      }
       widget.onSelectTheAnswer(answer);
-      // if (currentQuestionIndex == questions.length - 1) {
-      //   currentQuestionIndex = 0;
-      // } else {
-      //   currentQuestionIndex++;
-      // }
     });
   }
 
