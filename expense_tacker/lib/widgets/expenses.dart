@@ -1,5 +1,6 @@
 import 'package:expense_tacker/widgets/expense_list/expenses_list.dart';
 import 'package:expense_tacker/model/expense.dart';
+import 'package:expense_tacker/widgets/new_expense.dart';
 import 'package:flutter/material.dart';
 
 class Expenses extends StatefulWidget {
@@ -15,7 +16,25 @@ class _ExpensesState extends State<Expenses> {
     Expense(
       title: 'Flutter Course',
       amount: 19.22,
+      category: Category.leisure,
+      date: DateTime.now(),
+    ),
+    Expense(
+      title: 'Flutter Course',
+      amount: 19.22,
+      category: Category.food,
+      date: DateTime.now(),
+    ),
+    Expense(
+      title: 'Flutter Course',
+      amount: 19.22,
       category: Category.work,
+      date: DateTime.now(),
+    ),
+    Expense(
+      title: 'Flutter Course',
+      amount: 19.22,
+      category: Category.travel,
       date: DateTime.now(),
     ),
     Expense(
@@ -33,7 +52,7 @@ class _ExpensesState extends State<Expenses> {
     Expense(
       title: 'Flutter Course',
       amount: 19.22,
-      category: Category.work,
+      category: Category.food,
       date: DateTime.now(),
     ),
     Expense(
@@ -45,7 +64,13 @@ class _ExpensesState extends State<Expenses> {
     Expense(
       title: 'Flutter Course',
       amount: 19.22,
-      category: Category.work,
+      category: Category.leisure,
+      date: DateTime.now(),
+    ),
+    Expense(
+      title: 'Flutter Course',
+      amount: 19.22,
+      category: Category.travel,
       date: DateTime.now(),
     ),
     Expense(
@@ -57,7 +82,7 @@ class _ExpensesState extends State<Expenses> {
     Expense(
       title: 'Flutter Course',
       amount: 19.22,
-      category: Category.work,
+      category: Category.travel,
       date: DateTime.now(),
     ),
     Expense(
@@ -69,43 +94,19 @@ class _ExpensesState extends State<Expenses> {
     Expense(
       title: 'Flutter Course',
       amount: 19.22,
-      category: Category.work,
+      category: Category.leisure,
       date: DateTime.now(),
     ),
     Expense(
       title: 'Flutter Course',
       amount: 19.22,
-      category: Category.work,
+      category: Category.travel,
       date: DateTime.now(),
     ),
     Expense(
       title: 'Flutter Course',
       amount: 19.22,
-      category: Category.work,
-      date: DateTime.now(),
-    ),
-    Expense(
-      title: 'Flutter Course',
-      amount: 19.22,
-      category: Category.work,
-      date: DateTime.now(),
-    ),
-    Expense(
-      title: 'Flutter Course',
-      amount: 19.22,
-      category: Category.work,
-      date: DateTime.now(),
-    ),
-    Expense(
-      title: 'Flutter Course',
-      amount: 19.22,
-      category: Category.work,
-      date: DateTime.now(),
-    ),
-    Expense(
-      title: 'Flutter Course',
-      amount: 19.22,
-      category: Category.work,
+      category: Category.food,
       date: DateTime.now(),
     ),
     Expense(
@@ -127,9 +128,26 @@ class _ExpensesState extends State<Expenses> {
       date: DateTime.now(),
     ),
   ];
+
+  void _openAddExpenseOverLay() {
+    showModalBottomSheet(
+      context: context,
+      builder: (ctx) => const NewExpense(),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Flutter Expensetracker"),
+        actions: [
+          IconButton(
+            onPressed: _openAddExpenseOverLay,
+            icon: const Icon(Icons.add),
+          ),
+        ],
+      ),
       body: Column(
         children: [
           const Text('The Chart'),
