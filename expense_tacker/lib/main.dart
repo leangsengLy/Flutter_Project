@@ -12,7 +12,6 @@ void main() {
   runApp(
     MaterialApp(
       darkTheme: ThemeData.dark().copyWith(
-        useMaterial3: true,
         colorScheme: kDarkColorScheme,
         cardTheme: const CardTheme().copyWith(
           color: kDarkColorScheme.secondaryContainer,
@@ -26,7 +25,6 @@ void main() {
         ),
       ),
       theme: ThemeData().copyWith(
-        useMaterial3: true,
         colorScheme: kColorTheme,
         appBarTheme: const AppBarTheme().copyWith(
           backgroundColor: kColorTheme.onPrimaryContainer,
