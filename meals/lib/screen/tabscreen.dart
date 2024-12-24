@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meals/categories.dart';
 import 'package:meals/models/meal.dart';
+import 'package:meals/widgets/main_drawer.dart';
 import 'package:meals/widgets/meals.dart';
 
 class TabsScreen extends StatefulWidget {
@@ -44,6 +45,13 @@ class _TabsScreenState extends State<TabsScreen> {
     }
   }
 
+  void onSelectFilter(String type) {
+    if (type == 'filter') {
+    } else {
+      Navigator.of(context).pop();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget activePage =
@@ -61,6 +69,7 @@ class _TabsScreenState extends State<TabsScreen> {
       appBar: AppBar(
         title: Text(activePageTitle),
       ),
+      drawer: MainDrawer(onSelectFilter: onSelectFilter),
       body: activePage,
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedPageIndex,
