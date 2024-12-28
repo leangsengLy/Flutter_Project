@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopping/data/dummy_items.dart';
+import 'package:shopping/widgets/new_item.dart';
 
 class GroceryList extends StatelessWidget {
   const GroceryList({super.key});
@@ -8,6 +9,18 @@ class GroceryList extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Your Gercery"),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (ctx) => const NewItem(),
+                ),
+              );
+            },
+            icon: const Icon(Icons.add),
+          )
+        ],
       ),
       body: ListView.builder(
         itemCount: groceryItems.length,
