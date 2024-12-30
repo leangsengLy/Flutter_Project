@@ -15,11 +15,11 @@ class ItemFeature extends StatelessWidget {
       children: [
         Container(
           padding: const EdgeInsets.all(0),
-          width: 60,
-          height: 60,
+          width: 50,
+          height: 50,
           decoration: BoxDecoration(
             color: color,
-            borderRadius: BorderRadius.circular(19),
+            borderRadius: BorderRadius.circular(21),
           ),
           child: Icon(
             icon,
