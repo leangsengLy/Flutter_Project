@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:school/Screen/PageScreen/App/app_menu.dart';
 import 'package:school/Screen/PageScreen/calender_screen.dart';
 import 'package:school/Screen/PageScreen/contact_screen.dart';
 import 'package:school/Screen/PageScreen/home_screen.dart';
@@ -24,10 +25,10 @@ class MenuScreenState extends State<MenuScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Widget allScreen = const HomeScreen();
+    Widget allScreen = const AppMenu();
     print(indexScreen);
     if (indexScreen == 1) {
-      allScreen = const CalenderScreen();
+      allScreen = const HomeScreen();
     }
     if (indexScreen == 2) {
       allScreen = const PersonScreen();
@@ -44,7 +45,7 @@ class MenuScreenState extends State<MenuScreen> {
           BottomNavigationBarItem(
               icon: Icon(
                 size: 34,
-                Icons.menu_sharp,
+                Icons.apps_sharp,
                 color: indexScreen == 0
                     ? const Color.fromARGB(255, 0, 57, 122)
                     : const Color.fromARGB(255, 141, 141, 141),
@@ -53,7 +54,7 @@ class MenuScreenState extends State<MenuScreen> {
           BottomNavigationBarItem(
               icon: Icon(
                 size: 34,
-                Icons.calendar_month,
+                Icons.menu_sharp,
                 color: indexScreen == 1
                     ? const Color.fromARGB(255, 0, 57, 122)
                     : const Color.fromARGB(255, 141, 141, 141),
