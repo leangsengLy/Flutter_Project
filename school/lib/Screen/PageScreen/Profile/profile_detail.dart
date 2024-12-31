@@ -15,6 +15,20 @@ class ProfileDetailState extends State<ProfileDetail> {
       appBar: AppBar(
         title: const Text("Profile"),
       ),
+      body: const Center(
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            "No available data of Ly zee !!",
+            style: TextStyle(
+              fontSize: 19,
+            ),
+          ),
+          SizedBox(height: 6),
+          Text('welcome to ly zee vlogger!')
+        ],
+      )),
     );
   }
 }
