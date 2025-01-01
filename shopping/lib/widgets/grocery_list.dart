@@ -72,10 +72,29 @@ class GroceryListState extends State<GroceryList> {
     });
   }
 
-  void removeItem(GroceryItem item) {
+  void removeItem(GroceryItem item, BuildContext context) async {
+    final index = _groceryItems.indexOf(item);
     setState(() {
       _groceryItems.remove(item);
     });
+    final url = Uri.https(
+      'adsf-api-69d50-default-rtdb.firebaseio.com',
+      'shopping-list/${item.id}.json',
+    );
+    final responese = await http.delete(url);
+    if (responese.statusCode > 400) {
+      ScaffoldMessenger.of(context).clearSnackBars();
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            "Error something so we can't delete this data!",
+          ),
+        ),
+      );
+      setState(() {
+        _groceryItems.insert(index, item);
+      });
+    }
   }
 
   @override
@@ -88,7 +107,7 @@ class GroceryListState extends State<GroceryList> {
         itemCount: _groceryItems.length,
         itemBuilder: (context, index) => Dismissible(
           onDismissed: (direction) {
-            removeItem(_groceryItems[index]);
+            removeItem(_groceryItems[index], context);
           },
           key: Key(_groceryItems[index].name),
           child: ListTile(
