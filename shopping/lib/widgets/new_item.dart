@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:shopping/data/categories.dart';
 import 'package:shopping/models/grocery_item.dart';
 
@@ -12,15 +15,39 @@ class NewItem extends StatefulWidget {
 
 class NewItemState extends State<NewItem> {
   var _enterName = '';
+  var isSending = false;
   var _enterQuantity = 1;
   var _selectCategory = categories[Categories.vegetables]!;
   final _formKey = GlobalKey<FormState>();
-  void _saveItem() {
+  void _saveItem() async {
+    setState(() {
+      isSending = true;
+    });
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
+
+      final url = Uri.https(
+        'flutter-api-69d50-default-rtdb.firebaseio.com',
+        'shopping-list.json',
+      );
+      final response = await http.post(
+        url,
+        headers: {'Conent-Type': 'application/json'},
+        body: json.encode({
+          'name': _enterName,
+          'quantity': _enterQuantity,
+          'category': _selectCategory.title,
+        }),
+      );
+      print(response.statusCode);
+      print(response.body);
+
+      final Map<String, dynamic> resData = json.decode(response.body);
+      if (!context.mounted) return;
+      // Navigator.of(context).pop();
       Navigator.of(context).pop(
         GroceryItem(
-          id: DateTime.now().toString(),
+          id: resData['name'],
           name: _enterName,
           quantity: _enterQuantity,
           category: _selectCategory,
@@ -52,8 +79,9 @@ class NewItemState extends State<NewItem> {
                     if (value == null ||
                         value.trim().length <= 1 ||
                         value.trim().length > 50 ||
-                        value.isEmpty)
+                        value.isEmpty) {
                       return "Must be between 1 and 50 characters!";
+                    }
                     return null;
                   },
                   onSaved: (value) {
@@ -117,14 +145,22 @@ class NewItemState extends State<NewItem> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     TextButton(
-                      onPressed: () {
-                        _formKey.currentState!.reset();
-                      },
+                      onPressed: isSending
+                          ? null
+                          : () {
+                              _formKey.currentState!.reset();
+                            },
                       child: const Text("reset"),
                     ),
                     ElevatedButton(
-                      onPressed: _saveItem,
-                      child: const Text("Add new item"),
+                      onPressed: isSending ? null : _saveItem,
+                      child: isSending
+                          ? const SizedBox(
+                              width: 16,
+                              height: 16,
+                              child: CircularProgressIndicator(),
+                            )
+                          : const Text("Add new item"),
                     )
                   ],
                 )
