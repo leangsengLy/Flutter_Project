@@ -31,32 +31,47 @@ class GroceryListState extends State<GroceryList> {
       'flutter-api-69d50-default-rtdb.firebaseio.com',
       'shopping-list.json',
     );
-    final response = await http.get(url);
-    print(response.body);
-    if (response.statusCode > 400) {
+    try {
+      final response = await http.get(url);
+      print(response.body);
+      if (response.statusCode > 400) {
+        setState(() {
+          error = "Failed to fetch data. Please try again later";
+        });
+      }
+
+      if (response.body == 'null') {
+        setState(() {
+          isLoading = false;
+        });
+        return;
+      } else {
+        isLoading = false;
+      }
+
+      final Map<String, dynamic> listData = json.decode(response.body);
+      final List<GroceryItem> loadingItems = [];
+      for (final item in listData.entries) {
+        final cateory = categories.entries
+            .firstWhere((val) => val.value.title == item.value['category'])
+            .value;
+        loadingItems.add(
+          GroceryItem(
+            id: item.key,
+            name: item.value['name'],
+            quantity: item.value['quantity'],
+            category: cateory,
+          ),
+        );
+      }
       setState(() {
-        error = "Failed to fetch data. Please try again later";
+        _groceryItems = loadingItems;
+      });
+    } catch (pro) {
+      setState(() {
+        error = "Somthing went wrong. Please try agian later.";
       });
     }
-    isLoading = false;
-    final Map<String, dynamic> listData = json.decode(response.body);
-    final List<GroceryItem> loadingItems = [];
-    for (final item in listData.entries) {
-      final cateory = categories.entries
-          .firstWhere((val) => val.value.title == item.value['category'])
-          .value;
-      loadingItems.add(
-        GroceryItem(
-          id: item.key,
-          name: item.value['name'],
-          quantity: item.value['quantity'],
-          category: cateory,
-        ),
-      );
-    }
-    setState(() {
-      _groceryItems = loadingItems;
-    });
   }
 
   void _addItem() async {
@@ -78,7 +93,7 @@ class GroceryListState extends State<GroceryList> {
       _groceryItems.remove(item);
     });
     final url = Uri.https(
-      'adsf-api-69d50-default-rtdb.firebaseio.com',
+      'flutter-api-69d50-default-rtdb.firebaseio.com',
       'shopping-list/${item.id}.json',
     );
     final responese = await http.delete(url);
