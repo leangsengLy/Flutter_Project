@@ -1,3 +1,5 @@
+import 'package:favorite_place/screens/places.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -15,7 +17,11 @@ final theme = ThemeData().copyWith(
   ),
 );
 void main() {
-  runApp(const AppProject());
+  runApp(
+    const ProviderScope(
+      child: AppProject(),
+    ),
+  );
 }
 
 class AppProject extends StatelessWidget {
@@ -26,9 +32,7 @@ class AppProject extends StatelessWidget {
       theme: theme,
       title: "Grade place",
       home: const Scaffold(
-        body: Center(
-          child: Text("Hello world"),
-        ),
+        body: PlacesScreen(),
       ),
     );
   }
