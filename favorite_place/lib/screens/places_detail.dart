@@ -1,4 +1,5 @@
 import 'package:favorite_place/models/place..dart';
+import 'package:favorite_place/screens/map.dart';
 import 'package:flutter/material.dart';
 
 class PlacesDetailScreen extends StatelessWidget {
@@ -11,6 +12,17 @@ class PlacesDetailScreen extends StatelessWidget {
     final lat = place.placeLocation.latitude;
     final longati = place.placeLocation.longitude;
     return 'https://maps.googleapis.com/maps/api/staticmap?center=$lat,$longati=&zoom=16&size=600x300&maptype=roadmap&markers=color:red%7Clabel:S%7C$lat,$longati&key=AIzaSyD38baHAlNdY8_Kp1vEfTE038134vQ3_LE';
+  }
+
+  void onTabOnGoogleMap(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (ctx) => MapScreen(
+          isSelecting: false,
+          location: place.placeLocation,
+        ),
+      ),
+    );
   }
 
   @override
@@ -49,19 +61,24 @@ class PlacesDetailScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Row(
                   children: [
-                    Container(
-                        width: 60,
-                        height: 60,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                        clipBehavior: Clip.hardEdge,
-                        child: Image.network(
-                          locationImage,
-                          fit: BoxFit.cover,
-                          width: double.infinity,
-                          height: double.infinity,
-                        )),
+                    GestureDetector(
+                      onTap: () {
+                        onTabOnGoogleMap(context);
+                      },
+                      child: Container(
+                          width: 60,
+                          height: 60,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                          ),
+                          clipBehavior: Clip.hardEdge,
+                          child: Image.network(
+                            locationImage,
+                            fit: BoxFit.cover,
+                            width: double.infinity,
+                            height: double.infinity,
+                          )),
+                    ),
                     const SizedBox(
                       width: 17,
                     ),
