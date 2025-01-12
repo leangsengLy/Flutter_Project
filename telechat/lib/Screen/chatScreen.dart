@@ -61,6 +61,9 @@ class ChatScreenState extends State<ChatScreen> {
           SizedBox(width: 20),
         ],
       ),
+      body: const Center(
+        child: Text("You are not available conversation with another!"),
+      ),
     );
   }
 }
