@@ -41,7 +41,12 @@ class CardChatState extends State<CardChat> {
                       color: Colors.red,
                       borderRadius: BorderRadius.circular(100),
                     ),
-                    child: Image.asset('assets/images/4.jpg'),
+                    child: Image.asset(
+                      'assets/images/1.jpg',
+                      width: double.infinity,
+                      height: double.infinity,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                   const SizedBox(
                     width: 10,
@@ -51,7 +56,7 @@ class CardChatState extends State<CardChat> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Meng BunHeng',
+                        'Ly Zee vlogger',
                         style: TextStyle(fontSize: 19),
                       ),
                       Text(

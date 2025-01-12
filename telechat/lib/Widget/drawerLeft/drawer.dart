@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:telechat/Screen/drawerItemDeltailScreen.dart';
 
 class DrawerLeft extends StatefulWidget {
   const DrawerLeft({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return DrawerLeftState();
@@ -9,6 +11,13 @@ class DrawerLeft extends StatefulWidget {
 }
 
 class DrawerLeftState extends State<DrawerLeft> {
+  void SelectDrawerItem() {
+    Navigator.of(context).pop();
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (ctx) => const DrawerItemDeltailScreen()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -60,37 +69,61 @@ class DrawerLeftState extends State<DrawerLeft> {
             ],
           ),
           const SizedBox(height: 20),
-          const ListTile(
-            leading: Icon(Icons.person_2_outlined),
-            title: Text("My Profile"),
+          ListTile(
+            onTap: () {
+              SelectDrawerItem();
+            },
+            leading: const Icon(Icons.person_2_outlined),
+            title: const Text("My Profile"),
           ),
-          const ListTile(
-            leading: Icon(Icons.group_add_outlined),
-            title: Text("New Group"),
+          ListTile(
+            onTap: () {
+              SelectDrawerItem();
+            },
+            leading: const Icon(Icons.group_add_outlined),
+            title: const Text("New Group"),
           ),
-          const ListTile(
-            leading: Icon(Icons.medical_information_outlined),
-            title: Text("New Channel"),
+          ListTile(
+            onTap: () {
+              SelectDrawerItem();
+            },
+            leading: const Icon(Icons.medical_information_outlined),
+            title: const Text("New Channel"),
           ),
-          const ListTile(
-            leading: Icon(Icons.contact_emergency_outlined),
-            title: Text("Contact"),
+          ListTile(
+            onTap: () {
+              SelectDrawerItem();
+            },
+            leading: const Icon(Icons.contact_emergency_outlined),
+            title: const Text("Contact"),
           ),
-          const ListTile(
-            leading: Icon(Icons.call_end_outlined),
-            title: Text("Call"),
+          ListTile(
+            onTap: () {
+              SelectDrawerItem();
+            },
+            leading: const Icon(Icons.call_end_outlined),
+            title: const Text("Call"),
           ),
-          const ListTile(
-            leading: Icon(Icons.save_alt_sharp),
-            title: Text("Saved Message"),
+          ListTile(
+            onTap: () {
+              SelectDrawerItem();
+            },
+            leading: const Icon(Icons.save_alt_sharp),
+            title: const Text("Saved Message"),
           ),
-          const ListTile(
-            leading: Icon(Icons.settings_outlined),
-            title: Text("Settings"),
+          ListTile(
+            onTap: () {
+              SelectDrawerItem();
+            },
+            leading: const Icon(Icons.settings_outlined),
+            title: const Text("Settings"),
           ),
-          const ListTile(
-            leading: Icon(Icons.nightlight_outlined),
-            title: Text("Night Mode"),
+          ListTile(
+            onTap: () {
+              SelectDrawerItem();
+            },
+            leading: const Icon(Icons.nightlight_outlined),
+            title: const Text("Night Mode"),
           )
         ],
       ),
