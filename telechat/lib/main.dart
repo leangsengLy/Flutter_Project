@@ -31,7 +31,7 @@ class MyTeleApp extends StatelessWidget {
         ),
       ),
       home: DefaultTabController(
-        length: 10,
+        length: 4,
         child: Scaffold(
           key: _scaffoldKey,
           appBar: AppBar(
@@ -42,7 +42,7 @@ class MyTeleApp extends StatelessWidget {
                 Tab(
                   child: Row(
                     children: [
-                      Icon(Icons.wallet),
+                      Icon(Icons.all_inbox),
                       SizedBox(width: 10),
                       Text("All"),
                     ],
@@ -51,7 +51,7 @@ class MyTeleApp extends StatelessWidget {
                 Tab(
                   child: Row(
                     children: [
-                      Icon(Icons.wallet),
+                      Icon(Icons.file_copy_rounded),
                       SizedBox(width: 10),
                       Text("My Important file"),
                     ],
@@ -60,7 +60,7 @@ class MyTeleApp extends StatelessWidget {
                 Tab(
                   child: Row(
                     children: [
-                      Icon(Icons.wallet),
+                      Icon(Icons.join_full),
                       SizedBox(width: 10),
                       Text("Job"),
                     ],
@@ -69,7 +69,7 @@ class MyTeleApp extends StatelessWidget {
                 Tab(
                   child: Row(
                     children: [
-                      Icon(Icons.wallet),
+                      Icon(Icons.work_rounded),
                       SizedBox(width: 10),
                       Text("Project Flutter"),
                     ],

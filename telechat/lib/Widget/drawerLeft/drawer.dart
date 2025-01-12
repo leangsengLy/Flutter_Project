@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:telechat/Screen/drawerItemDeltailScreen.dart';
 
@@ -11,11 +12,99 @@ class DrawerLeft extends StatefulWidget {
 }
 
 class DrawerLeftState extends State<DrawerLeft> {
-  void SelectDrawerItem() {
+  final enterNameGroup = TextEditingController();
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  void SelectDrawerItem({String type = ""}) {
     Navigator.of(context).pop();
-    Navigator.of(context).push(
-      MaterialPageRoute(builder: (ctx) => const DrawerItemDeltailScreen()),
-    );
+    if (type == "new_channel" || type == "new_group") {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return Dialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Container(
+              width: double.infinity,
+              height: 160,
+              padding: const EdgeInsets.all(16.0),
+              child: Stack(
+                children: [
+                  const Positioned(
+                    top: 0,
+                    right: 10,
+                    child: Icon(
+                      Icons.more_vert_rounded,
+                      color: Colors.white,
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: 60,
+                        height: 60,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 0, 114, 190),
+                          borderRadius: BorderRadius.circular(100),
+                        ),
+                        child: const Icon(Icons.camera_alt),
+                      ),
+                      SizedBox(
+                        width: 220,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            TextField(
+                              decoration: InputDecoration(
+                                labelText: type != "new_channel"
+                                    ? "Group name"
+                                    : "Create Channel",
+                              ),
+                              keyboardType: TextInputType.text,
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: const Text("Cancel"),
+                                ),
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: const Text("Next"),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
+      );
+    } else {
+      Navigator.of(context).push(
+        MaterialPageRoute(builder: (ctx) => const DrawerItemDeltailScreen()),
+      );
+    }
   }
 
   @override
@@ -78,14 +167,14 @@ class DrawerLeftState extends State<DrawerLeft> {
           ),
           ListTile(
             onTap: () {
-              SelectDrawerItem();
+              SelectDrawerItem(type: "new_group");
             },
             leading: const Icon(Icons.group_add_outlined),
             title: const Text("New Group"),
           ),
           ListTile(
             onTap: () {
-              SelectDrawerItem();
+              SelectDrawerItem(type: "new_channel");
             },
             leading: const Icon(Icons.medical_information_outlined),
             title: const Text("New Channel"),
