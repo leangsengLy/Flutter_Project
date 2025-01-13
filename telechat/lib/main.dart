@@ -16,7 +16,6 @@ class MyTeleApp extends StatelessWidget {
     const BodyListchat(),
     const Center(child: Text("No available data!")),
     const Center(child: Text("No available data!")),
-    const Center(child: Text("No available data!")),
   ];
   //use for open drawer direct by click button action
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -37,10 +36,10 @@ class MyTeleApp extends StatelessWidget {
           appBar: AppBar(
             backgroundColor: Colors.black,
             bottom: const TabBar(
-              isScrollable: true,
               tabs: [
                 Tab(
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(Icons.all_inbox),
                       SizedBox(width: 10),
@@ -50,15 +49,7 @@ class MyTeleApp extends StatelessWidget {
                 ),
                 Tab(
                   child: Row(
-                    children: [
-                      Icon(Icons.file_copy_rounded),
-                      SizedBox(width: 10),
-                      Text("My Important file"),
-                    ],
-                  ),
-                ),
-                Tab(
-                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(Icons.join_full),
                       SizedBox(width: 10),
@@ -68,10 +59,11 @@ class MyTeleApp extends StatelessWidget {
                 ),
                 Tab(
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(Icons.work_rounded),
                       SizedBox(width: 10),
-                      Text("Project Flutter"),
+                      Text("Project"),
                     ],
                   ),
                 ),

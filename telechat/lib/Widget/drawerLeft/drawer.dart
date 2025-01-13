@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:telechat/Screen/drawerItemDeltailScreen.dart';
+import 'package:telechat/Screen/loginscreen.dart';
 
 class DrawerLeft extends StatefulWidget {
   const DrawerLeft({super.key});
@@ -107,6 +108,19 @@ class DrawerLeftState extends State<DrawerLeft> {
     }
   }
 
+  bool isDarkMode = false;
+  void changeValue(bool isChange) {
+    setState(() {
+      isDarkMode = isChange;
+    });
+  }
+
+  void onClickLogin() {
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (ctx) => const LoginScreen()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -209,11 +223,30 @@ class DrawerLeftState extends State<DrawerLeft> {
           ),
           ListTile(
             onTap: () {
-              SelectDrawerItem();
+              changeValue(!isDarkMode);
             },
-            leading: const Icon(Icons.nightlight_outlined),
-            title: const Text("Night Mode"),
-          )
+            leading: !isDarkMode
+                ? const Icon(Icons.nightlight_outlined)
+                : const Icon(Icons.sunny),
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text("Night Mode"),
+                Switch(
+                    value: isDarkMode,
+                    onChanged: (isChange) {
+                      changeValue(isChange);
+                    })
+              ],
+            ),
+          ),
+          ListTile(
+            onTap: () {
+              onClickLogin();
+            },
+            leading: const Icon(Icons.lock_person_outlined),
+            title: const Text("Login"),
+          ),
         ],
       ),
     ));
