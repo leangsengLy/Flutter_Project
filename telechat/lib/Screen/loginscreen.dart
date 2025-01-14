@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:telechat/Screen/bodyListChat.dart';
-import 'package:telechat/main.dart';
+import 'package:telechat/mytele_app.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
