@@ -23,7 +23,6 @@ class MyTeleApp extends StatelessWidget {
         child: Scaffold(
           key: _scaffoldKey,
           appBar: AppBar(
-            backgroundColor: Colors.black,
             bottom: const TabBar(
               tabs: [
                 Tab(
@@ -64,7 +63,6 @@ class MyTeleApp extends StatelessWidget {
               },
               icon: const Icon(
                 Icons.menu,
-                color: Colors.white,
               ),
             ),
             actions: [
@@ -153,7 +151,6 @@ class MyTeleApp extends StatelessWidget {
                         ],
                       ),
                     ),
-                    fillColor: const Color.fromARGB(255, 29, 29, 29),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
                       borderSide: BorderSide.none,
@@ -165,7 +162,6 @@ class MyTeleApp extends StatelessWidget {
             ],
           ),
           body: Container(
-            color: Colors.black,
             height: double.infinity,
             child: TabBarView(
               children: listViewContents,

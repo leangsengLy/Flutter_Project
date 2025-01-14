@@ -10,10 +10,16 @@ class LoginScreen extends StatefulWidget {
 }
 
 class LoginScreenState extends State<LoginScreen> {
+  final enterPasscode = TextEditingController();
+  @override
+  void dispose() {
+    enterPasscode.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 70),
@@ -29,18 +35,45 @@ class LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               const SizedBox(height: 50),
-              const TextField(
+              TextField(
+                controller: enterPasscode,
                 keyboardType: TextInputType.visiblePassword,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: "Your passcode",
                 ),
               ),
               const SizedBox(height: 30),
               GestureDetector(
                 onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(builder: (ctx) => MyTeleApp()),
-                  );
+                  ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                  if (enterPasscode.text.toLowerCase() == "lyzee") {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (ctx) => MyTeleApp()),
+                    );
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        backgroundColor: Colors.green,
+                        content: Text(
+                          "Welcome to my app!",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    );
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        backgroundColor: Colors.red,
+                        content: Text(
+                          "Invalid passscode pelase try again!",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    );
+                  }
                 },
                 child: Container(
                   width: double.infinity,

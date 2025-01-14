@@ -35,7 +35,6 @@ class ChatScreenState extends State<ChatScreen> {
                 Text(
                   'Ly Zee vlogger',
                   style: TextStyle(
-                    color: Colors.white,
                     fontSize: 17,
                     fontWeight: FontWeight.bold,
                   ),
@@ -43,7 +42,6 @@ class ChatScreenState extends State<ChatScreen> {
                 Text(
                   'last seen',
                   style: TextStyle(
-                    color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 13,
                   ),

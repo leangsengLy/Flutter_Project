@@ -23,7 +23,6 @@ class CardChatState extends State<CardChat> {
     return InkWell(
       onTap: SelectChat,
       child: Card(
-        color: const Color.fromARGB(0, 244, 67, 54),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20.0),
           child: Row(
@@ -38,7 +37,6 @@ class CardChatState extends State<CardChat> {
                     height: 60,
                     clipBehavior: Clip.hardEdge,
                     decoration: BoxDecoration(
-                      color: Colors.red,
                       borderRadius: BorderRadius.circular(100),
                     ),
                     child: Image.asset(
