@@ -24,7 +24,6 @@ class DrawerLeftState extends ConsumerState<DrawerLeft> {
   }
 
   void SelectDrawerItem({String type = ""}) {
-    Navigator.of(context).pop();
     if (type == "new_channel" || type == "new_group") {
       showDialog(
         context: context,

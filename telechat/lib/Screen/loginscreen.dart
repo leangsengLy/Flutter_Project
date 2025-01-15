@@ -30,7 +30,6 @@ class LoginScreenState extends State<LoginScreen> {
                 'Enter your local passcode',
                 style: TextStyle(
                   fontSize: 18,
-                  color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),
               ),
