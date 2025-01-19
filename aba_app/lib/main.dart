@@ -5,7 +5,6 @@ void main() {
   runApp(MaterialApp(
     title: "ABA Application",
     theme: ThemeData().copyWith(
-      scaffoldBackgroundColor: const Color.fromARGB(255, 0, 61, 80),
       colorScheme: ColorScheme.fromSeed(
         seedColor: Colors.green,
         brightness: Brightness.dark,
@@ -21,6 +20,14 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget content = const HomeScreen();
     return Container(
+      width: double.infinity,
+      height: double.infinity,
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(colors: [
+          Color.fromARGB(255, 0, 61, 80),
+          Color.fromARGB(255, 0, 61, 80),
+        ]),
+      ),
       child: content,
     );
   }
