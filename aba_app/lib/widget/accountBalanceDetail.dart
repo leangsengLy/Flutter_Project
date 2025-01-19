@@ -51,19 +51,26 @@ class AccountbalancedetailState extends State<Accountbalancedetail> {
                       height: 25,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                        color: isShowDetailBalance
-                            ? const Color.fromARGB(0, 175, 175, 175)
-                            : const Color.fromARGB(255, 175, 175, 175),
                         borderRadius: BorderRadius.circular(5),
                       ),
-                      child: Text(
-                        isShowDetailBalance ? "\$196557.23" : "",
-                        style: GoogleFonts.inter(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      child: isShowDetailBalance
+                          ? Text(
+                              isShowDetailBalance ? "\$196557.23" : "",
+                              style: GoogleFonts.inter(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            )
+                          : ClipRRect(
+                              borderRadius: BorderRadius.circular(5),
+                              child: Image.asset(
+                                "assets/images/blur.jpg",
+                                width: double.infinity,
+                                fit: BoxFit.fitWidth,
+                                height: double.infinity,
+                              ),
+                            ),
                     ),
                     const SizedBox(width: 10),
                     GestureDetector(
@@ -110,18 +117,21 @@ class AccountbalancedetailState extends State<Accountbalancedetail> {
                 )
               ],
             ),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
                   children: [
-                    Icon(
-                      Icons.arrow_downward,
-                      color: Colors.green,
-                      size: 17,
+                    Transform.rotate(
+                      angle: 160,
+                      child: const Icon(
+                        Icons.outbond_outlined,
+                        color: Colors.green,
+                        size: 24,
+                      ),
                     ),
-                    SizedBox(width: 8),
-                    Text(
+                    const SizedBox(width: 8),
+                    const Text(
                       'Receive Money',
                       style: TextStyle(
                         color: Colors.white,
@@ -132,13 +142,16 @@ class AccountbalancedetailState extends State<Accountbalancedetail> {
                 ),
                 Row(
                   children: [
-                    Icon(
-                      Icons.arrow_upward,
-                      color: Colors.red,
-                      size: 17,
+                    Transform.rotate(
+                      angle: 320,
+                      child: const Icon(
+                        Icons.outbond_outlined,
+                        color: Colors.red,
+                        size: 24,
+                      ),
                     ),
-                    SizedBox(width: 8),
-                    Text(
+                    const SizedBox(width: 8),
+                    const Text(
                       'Receive Money',
                       style: TextStyle(
                         color: Colors.white,
