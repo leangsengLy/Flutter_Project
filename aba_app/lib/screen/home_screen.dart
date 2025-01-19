@@ -1,5 +1,6 @@
 import 'package:aba_app/component_widget/blogContentAllFindNew.dart';
 import 'package:aba_app/component_widget/coperateService.dart';
+import 'package:aba_app/screen/scanQRCode.dart';
 import 'package:aba_app/widget/AccountBalanceDetail.dart';
 import 'package:aba_app/widget/advertisingImage.dart';
 import 'package:aba_app/widget/contentFindNew.dart';
@@ -73,13 +74,23 @@ class HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 0, 61, 80),
-        actions: const [
-          Icon(Icons.messenger_outline),
-          SizedBox(width: 10),
-          Icon(Icons.notification_important_outlined),
-          SizedBox(width: 10),
-          Icon(Icons.qr_code_sharp),
-          SizedBox(width: 30)
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.messenger_outline),
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: const Icon(Icons.notification_important_outlined),
+            onPressed: () {},
+          ),
+          IconButton(
+            icon: const Icon(Icons.qr_code_sharp),
+            onPressed: () {
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (ctx) => const ScanQRCode()));
+            },
+          ),
+          const SizedBox(width: 20)
         ],
       ),
       body: Container(
