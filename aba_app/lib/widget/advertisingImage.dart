@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Advertisingimage extends StatelessWidget {
-  const Advertisingimage({super.key});
+  const Advertisingimage({super.key, required this.urlImage});
+  final String urlImage;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -21,7 +22,7 @@ class Advertisingimage extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(10),
             child: Image.asset(
-              "assets/images/aba_1.jpg",
+              urlImage,
               width: double.infinity,
               height: 170,
               fit: BoxFit.cover,

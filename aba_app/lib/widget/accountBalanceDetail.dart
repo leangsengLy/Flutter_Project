@@ -71,7 +71,7 @@ class AccountbalancedetailState extends State<Accountbalancedetail> {
                         onClickEyeShowDetailBalanch();
                       },
                       child: Icon(
-                        isShowDetailBalance
+                        !isShowDetailBalance
                             ? Icons.visibility_off
                             : Icons.remove_red_eye,
                         color: Colors.white,

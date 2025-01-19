@@ -1,8 +1,10 @@
+import 'package:aba_app/component_widget/blogContentAllFindNew.dart';
+import 'package:aba_app/component_widget/coperateService.dart';
 import 'package:aba_app/widget/AccountBalanceDetail.dart';
 import 'package:aba_app/widget/advertisingImage.dart';
-import 'package:aba_app/widget/cardAtivity.dart';
-import 'package:aba_app/widget/serviceContent.dart';
-import 'package:aba_app/widget/smallCardAtivity.dart';
+import 'package:aba_app/widget/contentFindNew.dart';
+import 'package:aba_app/widget/headerProfile.dart';
+import 'package:aba_app/widget/menuActivity.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -14,6 +16,58 @@ class HomeScreen extends StatefulWidget {
 }
 
 class HomeScreenState extends State<HomeScreen> {
+  final List<Map<String, dynamic>> listService = [
+    {"image": "assets/images/legend.jpg", "label": "Live. By"},
+    {"image": "assets/images/live.jpg", "label": "Movie"},
+    {"image": "assets/images/smart.png", "label": "Smart"},
+    {"image": "assets/images/caption.jpg", "label": "VET Express"},
+    {"image": "assets/images/metfone.jpg", "label": "Metfone"},
+    {"image": "assets/images/movie.jpg", "label": "Cinema"}
+  ];
+  final List<Map<String, dynamic>> governmentServiceList = [
+    {"image": "assets/images/pressway.png", "label": "Press way"},
+    {"image": "assets/images/sabay1.png", "label": "Sabay"},
+    {"image": "assets/images/bbs.png", "label": "National Security"},
+    {"image": "assets/images/ama.png", "label": "Amazon"},
+    {"image": "assets/images/ali.png", "label": "Alibaba"},
+    {"image": "assets/images/sabay.png", "label": "Sabay"}
+  ];
+  final List<String> aBAImage = [
+    "assets/images/aba/2.png",
+    "assets/images/aba/1.png",
+    "assets/images/aba/3.png",
+    "assets/images/aba/4.png",
+    "assets/images/aba/5.png",
+    "assets/images/aba/44.webp",
+    "assets/images/aba/55.webp",
+    "assets/images/aba/66.webp",
+    "assets/images/aba/77.webp",
+  ];
+  final List<String> nhams = [
+    "assets/images/nham/1.webp",
+    "assets/images/nham/2.webp",
+    "assets/images/nham/3.webp",
+    "assets/images/nham/4.webp",
+    "assets/images/nham/5.webp",
+    "assets/images/nham/6.webp",
+    "assets/images/nham/7.webp",
+    "assets/images/nham/8.webp",
+    "assets/images/nham/9.webp",
+    "assets/images/nham/10.webp",
+    "assets/images/nham/11.webp",
+    "assets/images/nham/12.webp",
+    "assets/images/nham/14.webp",
+    "assets/images/nham/15.webp",
+    "assets/images/nham/16.webp",
+  ];
+  final List<String> vats = [
+    "assets/images/vat/1.webp",
+    "assets/images/vat/2.webp",
+    "assets/images/vat/3.webp",
+    "assets/images/vat/4.webp",
+    "assets/images/vat/5.webp",
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,195 +97,44 @@ class HomeScreenState extends State<HomeScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Row(
-                children: [
-                  Container(
-                    width: 50,
-                    height: 50,
-                    padding: const EdgeInsets.all(2),
-                    clipBehavior: Clip.hardEdge,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(100),
-                      color: Colors.white,
-                    ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(300),
-                      child: Image.asset(
-                        'assets/images/1.jpg',
-                        width: double.infinity,
-                        height: double.infinity,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 14),
-                  const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Hello, Leangseng!",
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        "View profile",
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.white,
-                        ),
-                      )
-                    ],
-                  )
-                ],
-              ),
+              const HeaderProfile(),
               const SizedBox(height: 20),
               const Accountbalancedetail(),
               const SizedBox(height: 13),
-              Container(
-                width: double.infinity,
-                height: 370,
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(29, 0, 0, 0),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                padding: const EdgeInsets.all(10),
-                child: Column(
-                  children: [
-                    GridView(
-                      controller: ScrollController(keepScrollOffset: false),
-                      shrinkWrap: true,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        childAspectRatio: (2 / 1.6),
-                        crossAxisSpacing: 10,
-                        mainAxisSpacing: 10,
-                      ),
-                      children: const [
-                        Cardativity(
-                            icon: Icons.account_balance_wallet,
-                            label: "Accounts"),
-                        Cardativity(icon: Icons.payment, label: "Cards"),
-                        Cardativity(
-                            icon: Icons.qr_code_scanner, label: "ABA Scan"),
-                        Cardativity(icon: Icons.stars, label: "Favorites"),
-                      ],
-                    ),
-                    const SizedBox(height: 10),
-                    const SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: [
-                          SmallCardAtivity(icon: Icons.paid, label: "Payment"),
-                          SizedBox(width: 10),
-                          SmallCardAtivity(
-                              icon: Icons.pivot_table_chart,
-                              label: "Navigator"),
-                          SizedBox(width: 10),
-                          SmallCardAtivity(
-                              icon: Icons.manage_accounts,
-                              label: "Mange Account"),
-                          SizedBox(width: 10),
-                          SmallCardAtivity(
-                              icon: Icons.fingerprint, label: "Finger print"),
-                          SizedBox(width: 10),
-                          SmallCardAtivity(icon: Icons.paid, label: "Payment"),
-                          SizedBox(width: 10),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
+              const MenuActivity(),
+              const SizedBox(height: 20),
+              const Advertisingimage(urlImage: "assets/images/aba_1.jpg"),
+              const SizedBox(height: 20),
+              CoperateService(
+                isViewAll: true,
+                label: "Explore Services",
+                listServer: listService,
               ),
               const SizedBox(height: 20),
-              const Advertisingimage(),
+              CoperateService(
+                isViewAll: true,
+                label: "Government Services",
+                listServer: governmentServiceList,
+              ),
               const SizedBox(height: 20),
-              Column(
-                children: [
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Explore Services",
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            "VIEW ALL",
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(
-                            width: 7,
-                          ),
-                          Icon(
-                            Icons.navigate_next_outlined,
-                            color: Colors.white,
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                  const SizedBox(height: 10),
-                  Container(
-                    padding: const EdgeInsets.all(18),
-                    height: 135,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(29, 0, 0, 0),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: const SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: [
-                          //Box Server
-                          ServiceContent(
-                            image: "assets/images/legend.jpg",
-                            lable: "Live. By",
-                          ),
-                          SizedBox(width: 14),
-                          ServiceContent(
-                            image: "assets/images/movie.jpg",
-                            lable: "Cinema",
-                          ),
-                          SizedBox(width: 14),
-                          ServiceContent(
-                            image: "assets/images/metfone.jpg",
-                            lable: "Metfone",
-                          ),
-                          SizedBox(width: 14),
-                          ServiceContent(
-                            image: "assets/images/caption.jpg",
-                            lable: "Cinema",
-                          ),
-                          SizedBox(width: 14),
-                          ServiceContent(
-                            image: "assets/images/smart.png",
-                            lable: "Metfone",
-                          ),
-                          SizedBox(width: 14),
-                          ServiceContent(
-                            image: "assets/images/live.jpg",
-                            lable: "Cinema",
-                          ),
-                        ],
-                      ),
-                    ),
-                  )
+              const CoperateService(
+                label: "Favorite",
+                listServer: [
+                  {
+                    "image": "assets/images/sabay.png",
+                    "label": "Sabay",
+                  },
                 ],
-              )
+              ),
+              const SizedBox(height: 20),
+              BlogContentAllFindNew(listImages: aBAImage, label: "ABA Bank"),
+              const SizedBox(height: 20),
+              const Advertisingimage(urlImage: "assets/images/aba_2.jpg"),
+              const SizedBox(height: 20),
+              BlogContentAllFindNew(listImages: nhams, label: "Nham 24"),
+              const SizedBox(height: 20),
+              BlogContentAllFindNew(listImages: vats, label: "Vathanak Bank"),
+              const SizedBox(height: 20),
             ],
           ),
         ),

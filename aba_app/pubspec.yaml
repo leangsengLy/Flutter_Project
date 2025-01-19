@@ -71,6 +71,41 @@ flutter:
     - assets/images/smart.png
     - assets/images/caption.jpg
     - assets/images/legend.jpg
+    - assets/images/ali.png
+    - assets/images/ama.png
+    - assets/images/bbs.png
+    - assets/images/sabay.png
+    - assets/images/sabay1.png
+    - assets/images/pressway.png
+    - assets/images/aba/1.png
+    - assets/images/aba/2.png
+    - assets/images/aba/3.png
+    - assets/images/aba/4.png
+    - assets/images/aba/5.png
+    - assets/images/aba/44.webp
+    - assets/images/aba/55.webp
+    - assets/images/aba/66.webp
+    - assets/images/aba/77.webp
+    - assets/images/nham/1.webp
+    - assets/images/nham/2.webp
+    - assets/images/nham/3.webp
+    - assets/images/nham/4.webp
+    - assets/images/nham/5.webp
+    - assets/images/nham/6.webp
+    - assets/images/nham/7.webp
+    - assets/images/nham/8.webp
+    - assets/images/nham/9.webp
+    - assets/images/nham/10.webp
+    - assets/images/nham/11.webp
+    - assets/images/nham/12.webp
+    - assets/images/nham/14.webp
+    - assets/images/nham/15.webp
+    - assets/images/nham/16.webp
+    - assets/images/vat/1.webp
+    - assets/images/vat/2.webp
+    - assets/images/vat/3.webp
+    - assets/images/vat/4.webp
+    - assets/images/vat/5.webp
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
