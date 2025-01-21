@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:aba_app/widget/menu_setting.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -192,8 +193,41 @@ class AbaSetting extends StatelessWidget {
                               color: Color.fromARGB(255, 255, 255, 255),
                             ),
                           ),
-                        )
+                        ),
                       ],
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  const MenuSetting(
+                    label: "My Profile",
+                    icon: Icons.account_circle_outlined,
+                  ),
+                  const SizedBox(height: 10),
+                  const MenuSetting(
+                    label: "Security",
+                    icon: Icons.lock_outline,
+                  ),
+                  const SizedBox(height: 10),
+                  const MenuSetting(
+                    label: "Language",
+                    icon: Icons.language_outlined,
+                  ),
+                  const SizedBox(height: 10),
+                  const MenuSetting(
+                    label: "Contact Us",
+                    icon: Icons.call_outlined,
+                  ),
+                  const SizedBox(height: 10),
+                  const MenuSetting(
+                    label: "Terms & Conditions",
+                    icon: Icons.app_blocking,
+                  ),
+                  const SizedBox(height: 40),
+                  const Text(
+                    "Developer by Ly LeangSeng or Ly Zee",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 12,
                     ),
                   )
                 ],
