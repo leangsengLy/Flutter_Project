@@ -1,12 +1,13 @@
 // import 'package:aba_app/screen/aba_setting.dart';
 import 'package:aba_app/screen/aba_setting.dart';
+import 'package:aba_app/screen/pin_to_login.dart';
 import 'package:flutter/material.dart';
 
 class HeaderProfile extends StatelessWidget {
   const HeaderProfile({super.key});
   void onClickProfileDetail(BuildContext context) {
     Navigator.of(context).push(
-      MaterialPageRoute(builder: (ctx) => const AbaSetting()),
+      MaterialPageRoute(builder: (ctx) => const PinToLogin()),
     );
   }
 

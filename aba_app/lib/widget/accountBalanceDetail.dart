@@ -1,3 +1,4 @@
+import 'package:aba_app/screen/pin_to_login.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -13,6 +14,13 @@ class AccountbalancedetailState extends State<Accountbalancedetail> {
   bool isShowDetailBalance = false;
   void onClickEyeShowDetailBalanch() {
     print("show image money");
+    // Navigator.of(context).push(
+    //   MaterialPageRoute(
+    //     builder: (ctx) => const PinToLogin(
+    //       typeLogin: "money",
+    //     ),
+    //   ),
+    // );
     setState(() {
       isShowDetailBalance = !isShowDetailBalance;
     });
@@ -47,7 +55,7 @@ class AccountbalancedetailState extends State<Accountbalancedetail> {
                 Row(
                   children: [
                     Container(
-                      width: 130,
+                      width: 140,
                       height: 25,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
@@ -55,7 +63,7 @@ class AccountbalancedetailState extends State<Accountbalancedetail> {
                       ),
                       child: isShowDetailBalance
                           ? Text(
-                              isShowDetailBalance ? "\$196557.23" : "",
+                              isShowDetailBalance ? "\$19,85857.23" : "",
                               style: GoogleFonts.inter(
                                 color: Colors.white,
                                 fontSize: 20,

@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:aba_app/screen/home_screen.dart';
 import 'package:aba_app/widget/menu_setting.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -39,7 +40,11 @@ class AbaSetting extends StatelessWidget {
                   children: [
                     IconButton(
                         onPressed: () {
-                          Navigator.of(context).pop();
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (ctx) => const HomeScreen(),
+                            ),
+                          );
                         },
                         icon: const Icon(
                           Icons.close_rounded,
