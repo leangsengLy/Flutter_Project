@@ -42,15 +42,19 @@ class PinToLoginState extends State<PinToLogin> {
         setState(() {
           isInvalidPassword = false;
         });
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (ctx) {
-              Widget content = const AbaSetting();
-              if (widget.typeLogin == "money") content = const HomeScreen();
-              return content;
-            },
-          ),
-        );
+        if (widget.typeLogin == "money") {
+          Navigator.of(context).pop(true);
+        } else {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (ctx) {
+                Widget content = const AbaSetting();
+                if (widget.typeLogin == "money") content = const HomeScreen();
+                return content;
+              },
+            ),
+          );
+        }
       } else {
         setState(() {
           isInvalidPassword = true;

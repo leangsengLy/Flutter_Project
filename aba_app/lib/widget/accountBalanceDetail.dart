@@ -12,17 +12,17 @@ class Accountbalancedetail extends StatefulWidget {
 
 class AccountbalancedetailState extends State<Accountbalancedetail> {
   bool isShowDetailBalance = false;
-  void onClickEyeShowDetailBalanch() {
+  void onClickEyeShowDetailBalanch() async {
     print("show image money");
-    // Navigator.of(context).push(
-    //   MaterialPageRoute(
-    //     builder: (ctx) => const PinToLogin(
-    //       typeLogin: "money",
-    //     ),
-    //   ),
-    // );
+    final getIsOpenDetailMoney = await Navigator.of(context).push<bool>(
+      MaterialPageRoute(
+        builder: (ctx) => const PinToLogin(
+          typeLogin: "money",
+        ),
+      ),
+    );
     setState(() {
-      isShowDetailBalance = !isShowDetailBalance;
+      isShowDetailBalance = getIsOpenDetailMoney!;
     });
     print(isShowDetailBalance);
   }

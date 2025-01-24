@@ -36,6 +36,12 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   google_fonts: ^6.2.1
+  flutter_launcher_icons: ^0.14.3
+# Here below code we use for generate icon on our project flutter after run success
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/icon_app/app_icon.png"
 
 dev_dependencies:
   flutter_test:
@@ -79,6 +85,9 @@ flutter:
     - assets/images/sabay.png
     - assets/images/sabay1.png
     - assets/images/pressway.png
+
+
+    - assets/images/icon_app/app_icon.png
 
     - assets/images/aba/1.png
     - assets/images/aba/2.png
