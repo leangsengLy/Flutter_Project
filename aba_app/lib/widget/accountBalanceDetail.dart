@@ -13,17 +13,22 @@ class Accountbalancedetail extends StatefulWidget {
 class AccountbalancedetailState extends State<Accountbalancedetail> {
   bool isShowDetailBalance = false;
   void onClickEyeShowDetailBalanch() async {
-    print("show image money");
-    final getIsOpenDetailMoney = await Navigator.of(context).push<bool>(
-      MaterialPageRoute(
-        builder: (ctx) => const PinToLogin(
-          typeLogin: "money",
+    if (isShowDetailBalance) {
+      setState(() {
+        isShowDetailBalance = false;
+      });
+    } else {
+      final getIsOpenDetailMoney = await Navigator.of(context).push<bool>(
+        MaterialPageRoute(
+          builder: (ctx) => const PinToLogin(
+            typeLogin: "money",
+          ),
         ),
-      ),
-    );
-    setState(() {
-      isShowDetailBalance = getIsOpenDetailMoney!;
-    });
+      );
+      setState(() {
+        isShowDetailBalance = getIsOpenDetailMoney!;
+      });
+    }
     print(isShowDetailBalance);
   }
 
@@ -63,7 +68,7 @@ class AccountbalancedetailState extends State<Accountbalancedetail> {
                       ),
                       child: isShowDetailBalance
                           ? Text(
-                              isShowDetailBalance ? "\$19,85857.23" : "",
+                              isShowDetailBalance ? "\$19,5327.236" : "",
                               style: GoogleFonts.inter(
                                 color: Colors.white,
                                 fontSize: 20,

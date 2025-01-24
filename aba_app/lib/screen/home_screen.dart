@@ -3,7 +3,6 @@ import 'package:aba_app/component_widget/coperateService.dart';
 import 'package:aba_app/screen/scanQRCode.dart';
 import 'package:aba_app/widget/AccountBalanceDetail.dart';
 import 'package:aba_app/widget/advertisingImage.dart';
-import 'package:aba_app/widget/contentFindNew.dart';
 import 'package:aba_app/widget/headerProfile.dart';
 import 'package:aba_app/widget/menuActivity.dart';
 import 'package:flutter/material.dart';
@@ -73,7 +72,7 @@ class HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 0, 61, 80),
+        backgroundColor: const Color.fromARGB(255, 0, 44, 70),
         actions: [
           IconButton(
             icon: const Icon(Icons.messenger_outline),
@@ -98,7 +97,7 @@ class HomeScreenState extends State<HomeScreen> {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Color.fromARGB(255, 0, 61, 80),
+              Color.fromARGB(255, 0, 44, 70),
               Color.fromARGB(255, 10, 127, 163),
             ],
             begin: Alignment.topCenter,

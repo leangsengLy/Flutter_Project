@@ -1,3 +1,4 @@
+import 'package:aba_app/screen/payment_screen.dart';
 import 'package:aba_app/screen/pin_to_login.dart';
 import 'package:flutter/material.dart';
 
@@ -10,8 +11,10 @@ class SmallCardAtivity extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        Widget? content = const PinToLogin();
+        if (label.toLowerCase() == 'payment') content = const PaymentScreen();
         Navigator.of(context).push(
-          MaterialPageRoute(builder: (ctx) => const PinToLogin()),
+          MaterialPageRoute(builder: (ctx) => content!),
         );
       },
       child: Container(
