@@ -1,13 +1,26 @@
+import 'package:aba_app/data/payment.dart';
+import 'package:aba_app/screen/home_screen.dart';
 import 'package:aba_app/widget/payment/payment_card.dart';
 import 'package:flutter/material.dart';
 
 class PaymentScreen extends StatelessWidget {
   const PaymentScreen({super.key});
+  final listPayment = dataList;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 0, 44, 70),
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).push<bool>(
+              MaterialPageRoute(
+                builder: (ctx) => const HomeScreen(),
+              ),
+            );
+          },
+          icon: const Icon(Icons.arrow_back),
+        ),
         backgroundColor: const Color.fromARGB(0, 255, 255, 255),
         title: const Text(
           "ABA' Payments",
@@ -89,101 +102,24 @@ class PaymentScreen extends StatelessWidget {
               decoration: const BoxDecoration(
                 color: Color.fromARGB(255, 0, 35, 54),
               ),
-              child: const SingleChildScrollView(
+              child: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
                 child: Column(
                   children: [
-                    PaymentCard(
-                      icon: Icons.bookmark,
-                      color: Colors.black,
-                      detail: "Pay bills from your favorites list",
-                      label: "Choose from Favorites",
-                    ),
-                    SizedBox(height: 10),
-                    PaymentCard(
-                      icon: Icons.phone_in_talk_outlined,
-                      color: Color.fromARGB(255, 60, 166, 252),
-                      label: "Mobile Top-up",
-                      detail: "Supported operators",
-                    ),
-                    SizedBox(height: 10),
-                    PaymentCard(
-                      icon: Icons.settings,
-                      color: Color.fromARGB(255, 7, 107, 189),
-                      label: "Utilities",
-                      detail: "Pay for electricity, water and waste bills",
-                    ),
-                    SizedBox(height: 10),
-                    PaymentCard(
-                      icon: Icons.apartment,
-                      color: Color.fromARGB(255, 224, 90, 0),
-                      label: "Government Services",
-                      detail: "Pay for taxes or publis services",
-                    ),
-                    SizedBox(height: 10),
-                    PaymentCard(
-                      icon: Icons.wifi,
-                      color: Color.fromARGB(255, 0, 168, 36),
-                      label: "Internet & TV",
-                      detail: "Pay your internet and TV bills",
-                    ),
-                    SizedBox(height: 10),
-                    PaymentCard(
-                      icon: Icons.home,
-                      color: Color.fromARGB(255, 152, 0, 190),
-                      label: "Real Estate",
-                      detail: "Pay for property",
-                    ),
-                    SizedBox(height: 10),
-                    PaymentCard(
-                      icon: Icons.rice_bowl_rounded,
-                      color: Color.fromARGB(255, 247, 119, 0),
-                      label: "Insurance",
-                      detail: "Pay for insurence premiums",
-                    ),
-                    SizedBox(height: 10),
-                    PaymentCard(
-                      icon: Icons.attach_money,
-                      color: Color.fromARGB(255, 0, 117, 196),
-                      label: "Finance & Investent",
-                      detail: "Payment for 3rd party financial services",
-                    ),
-                    SizedBox(height: 10),
-                    PaymentCard(
-                      icon: Icons.local_shipping,
-                      color: Color.fromARGB(255, 0, 73, 168),
-                      label: "Trading & Distribution",
-                      detail: "Pay trading partners or distributors",
-                    ),
-                    SizedBox(height: 10),
-                    PaymentCard(
-                      icon: Icons.school,
-                      color: Color.fromARGB(255, 0, 168, 36),
-                      label: "Education",
-                      detail: "Pay for school fees",
-                    ),
-                    SizedBox(height: 10),
-                    PaymentCard(
-                      icon: Icons.sports_esports,
-                      color: Color.fromARGB(255, 0, 138, 218),
-                      label: "Entertainment",
-                      detail: "Shop for credit for games and apps",
-                    ),
-                    SizedBox(height: 10),
-                    PaymentCard(
-                      icon: Icons.credit_card,
-                      color: Color.fromARGB(255, 0, 73, 168),
-                      label: "Membership & Subscription",
-                      detail: "Pay for your subscription",
-                    ),
-                    SizedBox(height: 10),
-                    PaymentCard(
-                      icon: Icons.travel_explore_sharp,
-                      color: Color.fromARGB(255, 156, 0, 204),
-                      label: "Travel & Tours",
-                      detail: "Pay to travel service-providers",
-                    ),
-                    SizedBox(height: 10),
+                    ...listPayment
+                        .map(
+                          (val) => Column(
+                            children: [
+                              PaymentCard(
+                                payment: val,
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                            ],
+                          ),
+                        )
+                        .toList()
                   ],
                 ),
               ),

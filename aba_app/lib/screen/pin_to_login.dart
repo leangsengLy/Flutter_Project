@@ -1,5 +1,7 @@
 import 'package:aba_app/screen/aba_setting.dart';
 import 'package:aba_app/screen/home_screen.dart';
+import 'package:aba_app/screen/payment_detail_screen.dart';
+import 'package:aba_app/screen/payment_screen.dart';
 import 'package:aba_app/widget/pin_number.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +24,7 @@ class PinToLoginState extends State<PinToLogin> {
     pinPassword = [];
   }
 
-  void onClickNumber(String pin) {
+  void onClickNumber(String pin) async {
     if (pin == "clear") {
       if (pinPassword.isNotEmpty) {
         setState(() {
@@ -45,15 +47,27 @@ class PinToLoginState extends State<PinToLogin> {
         if (widget.typeLogin == "money") {
           Navigator.of(context).pop(true);
         } else {
-          Navigator.of(context).push(
+          var backToScreen = await Navigator.of(context).push<bool>(
             MaterialPageRoute(
               builder: (ctx) {
                 Widget content = const AbaSetting();
-                if (widget.typeLogin == "money") content = const HomeScreen();
+                if (widget.typeLogin == "Payment") {
+                  content = const PaymentScreen();
+                } else if (widget.typeLogin == "money") {
+                  content = const HomeScreen();
+                }
+
                 return content;
               },
             ),
           );
+          if (backToScreen!) {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (ctx) => const HomeScreen(),
+              ),
+            );
+          }
         }
       } else {
         setState(() {

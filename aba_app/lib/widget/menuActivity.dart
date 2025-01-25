@@ -29,8 +29,11 @@ class MenuActivity extends StatelessWidget {
               Cardativity(
                   icon: Icons.account_balance_wallet, label: "Accounts"),
               Cardativity(icon: Icons.payment, label: "Cards"),
+              Cardativity(
+                icon: Icons.monetization_on_outlined,
+                label: "Payment",
+              ),
               Cardativity(icon: Icons.qr_code_scanner, label: "ABA Scan"),
-              Cardativity(icon: Icons.stars, label: "Favorites"),
             ],
           ),
           const SizedBox(height: 10),

@@ -37,6 +37,17 @@ dependencies:
   cupertino_icons: ^1.0.8
   google_fonts: ^6.2.1
   flutter_launcher_icons: ^0.14.3
+  # Here below code we use for show color, background while open app
+  flutter_native_splash: ^2.4.4 
+
+flutter_native_splash:
+  # color: "#23486A" 
+  android: true
+  ios: true
+  background_image: "assets/images/aba_1.jpg"
+  #image: "assets/images/aba_2.jpg"
+
+
 # Here below code we use for generate icon on our project flutter after run success
 flutter_launcher_icons:
   android: "launcher_icon"
@@ -46,6 +57,8 @@ flutter_launcher_icons:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -124,6 +137,22 @@ flutter:
 
 
     - assets/images/qr/1.png
+
+    # payment
+    - assets/images/payment/util/1.jpg
+    - assets/images/payment/util/2.png
+    - assets/images/payment/util/3.jpg
+    - assets/images/payment/util/4.jpg
+    - assets/images/payment/util/5.jpg
+    - assets/images/payment/util/6.png
+    - assets/images/payment/util/7.jpg
+    - assets/images/payment/util/8.jpg
+    - assets/images/payment/util/9.jpg
+    - assets/images/payment/util/10.jpg
+
+    - assets/images/payment/tv/1.png
+    - assets/images/payment/tv/2.png
+    - assets/images/payment/tv/3.png
 
 
 

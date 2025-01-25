@@ -10,7 +10,11 @@ class Cardativity extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(
-          MaterialPageRoute(builder: (ctx) => const PinToLogin()),
+          MaterialPageRoute(
+            builder: (ctx) => PinToLogin(
+              typeLogin: label,
+            ),
+          ),
         );
       },
       child: Container(
@@ -27,10 +31,10 @@ class Cardativity extends StatelessWidget {
           children: [
             Icon(
               icon,
-              size: 30,
+              size: 36,
               color: Colors.white,
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 20),
             Text(
               label,
               style: const TextStyle(

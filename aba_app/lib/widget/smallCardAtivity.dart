@@ -11,11 +11,19 @@ class SmallCardAtivity extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Widget? content = const PinToLogin();
-        if (label.toLowerCase() == 'payment') content = const PaymentScreen();
         Navigator.of(context).push(
-          MaterialPageRoute(builder: (ctx) => content!),
+          MaterialPageRoute(
+            builder: (ctx) => PinToLogin(
+              typeLogin: label,
+            ),
+          ),
         );
+
+        // Widget? content = const PinToLogin();
+        // if (label.toLowerCase() == 'payment') content = const PaymentScreen();
+        // Navigator.of(context).push(
+        //   MaterialPageRoute(builder: (ctx) => content!),
+        // );
       },
       child: Container(
         width: 150,
