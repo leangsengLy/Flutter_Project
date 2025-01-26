@@ -18,11 +18,11 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Image.network(
+          Image.asset(
             fit: BoxFit.scaleDown,
             width: double.maxFinite,
             height: double.maxFinite,
-            'https://img.freepik.com/free-vector/woman-black-graducation-gown_1308-31035.jpg?t=st=1735444898~exp=1735448498~hmac=c05a632fe7435c3080cb758130b380a1c2b2f05d5c75cc179177066115fc31c0&w=360',
+            'assets/images/2.avif',
           ),
           Container(
             height: double.infinity,

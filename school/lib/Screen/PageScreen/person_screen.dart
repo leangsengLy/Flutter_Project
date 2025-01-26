@@ -56,11 +56,11 @@ class PersonScreen extends StatelessWidget {
                         color: Colors.red,
                         borderRadius: BorderRadius.circular(100),
                       ),
-                      child: Image.network(
+                      child: Image.asset(
                         width: double.infinity,
                         height: double.infinity,
                         fit: BoxFit.cover,
-                        'https://scontent.fpnh24-1.fna.fbcdn.net/v/t39.30808-6/456907763_122141789888304464_1739001889966117959_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHxMTABCAQS46MxxwXrtYKAh3wgNU0UkTaHfCA1TRSRNr5WvfSfFvkgk35z7KE6telJ70kiPO164-kBCZZ2106J&_nc_ohc=82A96hAqAioQ7kNvgHRUTEb&_nc_zt=23&_nc_ht=scontent.fpnh24-1.fna&_nc_gid=ArzA2dPL4mJva6RjgZusfgW&oh=00_AYAoOkvRAA-YlScUjXDVgN7OCq-0i8z1SHV8hY0Cm7FLJw&oe=6776E567',
+                        'assets/images/2.jpg',
                       ),
                     ),
                   ),
