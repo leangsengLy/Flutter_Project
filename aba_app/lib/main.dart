@@ -14,7 +14,7 @@ void main() {
   ));
 }
 
-// start build this ui model from 15-1-2025 -> 15-02-2025 (End project)
+// start build this ui model from 15-1-2025 -> 26-01-2025 (End project)
 class App extends StatelessWidget {
   const App({super.key});
   @override
