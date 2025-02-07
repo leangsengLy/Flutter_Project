@@ -68,7 +68,7 @@ class AccountbalancedetailState extends State<Accountbalancedetail> {
                       ),
                       child: isShowDetailBalance
                           ? Text(
-                              isShowDetailBalance ? "\$19,5327.236" : "",
+                              isShowDetailBalance ? "\$19,5327.85" : "",
                               style: GoogleFonts.inter(
                                 color: Colors.white,
                                 fontSize: 20,
