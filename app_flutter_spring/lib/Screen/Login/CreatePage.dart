@@ -106,6 +106,10 @@ class CreatepageState extends State<Createpage> {
                 style: TextStyle(color: Colors.white),
               ),
             ));
+            await Future.delayed(Duration(seconds: 2), () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (ctx) => const LoginPage()));
+            });
           } else {
             // Handle errors
             setState(() {
